@@ -1,0 +1,12 @@
+{
+  "name": "RollBot",
+  "version": "1.0.0",
+  "description": "Discord Bot for playing tabletop games in discord",
+  "main": "bot.js",
+  "author": "Levi Smith",
+  "dependencies": {
+    "discord.io": "github:woor/discord.io#gateway_v6",
+    "sqlite3": "^4.0.9",
+    "winston": "^2.4.4"
+  }
+}
