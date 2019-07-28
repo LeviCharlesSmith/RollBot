@@ -10,3 +10,9 @@ logger.add(logger.transports.Console, {
 	colorize: true
 });
 logger.level = 'debug';
+
+// Initialize Discord Bot
+var bot = new Discord.Client({
+   token: auth.token,
+   autorun: true
+});
