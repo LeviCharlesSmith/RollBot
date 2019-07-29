@@ -17,6 +17,19 @@ var bot = new Discord.Client({
    autorun: true
 });
 
+function spell(name, callback) {
+	var spellData = sql.get("SELECT * FROM spells WHERE LOWER(name) = '"+ name.toLowerCase() + "'", [], (err,row) => {
+		if (err) {
+			return console.error(err.message);
+		}
+
+		return row
+			? callback(row)
+			: console.log('No row found.');
+	});
+	return spellData;
+}
+
 //Returns help text
 function help() {
   return "Hi! I'm RollBot and here are all my commands: \n"
