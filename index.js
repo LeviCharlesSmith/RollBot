@@ -17,6 +17,18 @@ var bot = new Discord.Client({
    autorun: true
 });
 
+// Does the math for generating dice rolls
+function generateRoll(times = 1, arg1 = 2, arg2 = 0, arithmatic, bonus = 0, comment = "") {
+    var rolls = [];
+		var sides = arg1 + "" + arg2;
+        console.log(times, sides)
+    for (var i = 0; times > i; i++) {
+        rolls.push(Math.floor(Math.random() * sides) + 1);
+    }
+    console.log(rolls)
+    return rolls;
+}
+
 bot.on('ready', function (evt) {
 	logger.info('Connected');
 	logger.info('Logged in as: ');
