@@ -64,13 +64,11 @@ function orderDisplay() {
 }
 
 // Does the math for generating dice rolls
-function generateRoll(times = 1, arg1 = 2, arg2 = 0, arithmatic, bonus = 0, comment = "") {
+function generateRoll(times = 1, sides = 2, bonus = 0, comment = "") {
   var rolls = [];
-  var sides = arg1 + "" + arg2;
-  console.log(times, sides);
+
   for (var i = 0; times > i; i++) {
-    rolls.push(Math.floor(Math.random() * sides) + 1);
-  }
+rolls.push(Math.floor(Math.random() * sides) + 1 + (bonus?bonus:0));  }
   console.log(rolls);
   return rolls;
 }
@@ -120,29 +118,19 @@ bot.on('message', function(user, userID, channelID, message, evt) {
 
         //!roll
       case 'roll':
-        args = args.join().split("");
-        var rolls = generateRoll(args[0], args[2], args[3], args[4], args[5], args[6], args[7]);
+        var rx = /(?<num>\d)(?<delim>[a-zA-Z])(?<sides>\d*)(?<modsign>[+-])?(?<mod>\d*)?/gm;
+        args = rx.exec(args[0]);
+        var rolls = generateRoll(parseInt(args.groups.num), parseInt(args.groups.sides), parseInt(args.groups.modsign + args.groups.mod));
 
-        if (args[4] === "+") {
-          bot.sendMessage({
-            to: channelID,
-            message: "<@!" + userID + ">\n" +
-              "`" + args[0] + "d" + args[2] + args[3] + "+" + args[5] + "`" + ": " + (parseInt(rolls) + parseInt(args[5] + args[6] + args[7]))
-          });
-        } else if (args[4] === '-') {
-          bot.sendMessage({
-            to: channelID,
-            message: "<@!" + userID + ">\n" +
-              "`" + args[0] + "d" + args[2] + args[3] + "-" + args[5] + "`" + ": " + (parseInt(rolls) - parseInt(args[5] + args[6] + args[7]))
-          });
-        } else {
-          bot.sendMessage({
-            to: channelID,
-            message: "<@!" + userID + ">\n" +
-              "`" + args[0] + "d" + args[2] + args[3] + "`" + ": " + (parseInt(rolls))
-          });
-        }
+        bot.sendMessage({
+          to: channelID,
+          message: "<@!" + userID + ">\n" +
+            "`" + args.groups.num + "d" + args.groups.sides + ((typeof(args.groups.modsign) == "undefined") ? "" : args.groups.modsign) + ((typeof(args.groups.mod) == "undefined") ? "" : args.groups.mod) + "`" + " = " + rolls.join(", ") + "\n Total: " + rolls.reduce((a, b) => a + b)
+        });
+
         break;
+
+
         //	!order
       case 'order':
         var subcmd = args[0];
