@@ -39,7 +39,8 @@ function help() {
   + "`" + "/order set [name1] [name2]" +  "`" + "   save your turn order so you don’t forget \n"
   + "`" + "/order list" + "`" + "   view the current turn order \n"
   + "`" + "/order add [name]" + "`" + "   add someone to the end of the turn order \n"
-  + "`" + "/view" + "`" + "   view the current turn order"
+  + "`" + "/view" + "`" + "   view the current turn order \n"
+	+ "`" + "/spell [spellname]" + "`" + "view info on any spell in the database"
 }
 
 //Stores turn order.
