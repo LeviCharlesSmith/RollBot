@@ -122,26 +122,26 @@ bot.on('message', function (user, userID, channelID, message, evt) {
   //!roll
         case 'roll':
           args = args.join().split("");
-          var rolls = generateRoll(args[0], args[2], args[3], args[4], args[5], args[6], args [7])
+          var rolls = generateRoll(args[0], args[2], args[3], args[4], args[5], args[6], args [7]);
 
   if (args[4] === "+") {
           bot.sendMessage({
             to: channelID,
   message:  "<@!" + userID + ">\n" +
  			            "`" + args[0] + "d" + args[2] + args[3] + "+" + args[5] + "`" + ": " + (parseInt(rolls) + parseInt(args[5] + args[6] + args[7]))
-  })
+  });
   } else if (args[4] === '-') {
   bot.sendMessage({
             to: channelID,
   message:  "<@!" + userID + ">\n" +
    			            "`" + args[0] + "d" + args[2] + args[3] + "-" + args[5] + "`" + ": " + (parseInt(rolls) - parseInt(args[5] + args[6] + args[7]))
-  })
+  });
   } else {
   bot.sendMessage({
             to: channelID,
   message:  "<@!" + userID + ">\n" +
    			            "`" + args[0] + "d" + args[2] + args[3] + "`" + ": " + (parseInt(rolls))
-  })
+  });
   }
               break;
       //	!order
