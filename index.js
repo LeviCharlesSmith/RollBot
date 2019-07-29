@@ -17,6 +17,25 @@ var bot = new Discord.Client({
    autorun: true
 });
 
+//Stores turn order.
+var turnOrder = [];
+var turnOrderCurrent = 0;
+
+// Set turn order to entered list.
+function orderSet(list) {
+	turnOrder = list;
+}
+
+// Add to end of turn order.
+function orderAdd(name) {
+	turnOrder.push(name);
+}
+
+// Display turn order.
+function orderDisplay() {
+	return turnOrder;
+}
+
 // Does the math for generating dice rolls
 function generateRoll(times = 1, arg1 = 2, arg2 = 0, arithmatic, bonus = 0, comment = "") {
     var rolls = [];
