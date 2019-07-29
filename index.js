@@ -67,11 +67,11 @@ function orderDisplay() {
 function generateRoll(times = 1, arg1 = 2, arg2 = 0, arithmatic, bonus = 0, comment = "") {
     var rolls = [];
 		var sides = arg1 + "" + arg2;
-        console.log(times, sides)
+        console.log(times, sides);
     for (var i = 0; times > i; i++) {
         rolls.push(Math.floor(Math.random() * sides) + 1);
     }
-    console.log(rolls)
+    console.log(rolls);
     return rolls;
 }
 
