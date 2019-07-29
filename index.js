@@ -33,13 +33,13 @@ function spell(name, callback) {
 //Returns help text
 function help() {
   return "Hi! I'm RollBot and here are all my commands: \n"
-  + "`" + "!help" + "`" + "   your reading this now! \n"
-  + "`" + "!roll 1d20"  +  "`" + "   roll a die, use + and - to add modifiers \n"
-  + "`" + "!roll stats" +   "`" + "   generate your attributes by typing !roll stats \n"
-  + "`" + "!order set [name1] [name2]" +  "`" + "   save your turn order so you don’t forget \n"
-  + "`" + "!order list" + "`" + "   view the current turn order \n"
-  + "`" + "!order add [name]" + "`" + "   add someone to the end of the turn order \n"
-  + "`" + "!view" + "`" + "   view the current turn order"
+  + "`" + "/help" + "`" + "   your reading this now! \n"
+  + "`" + "/roll 1d20"  +  "`" + "   roll a die, use + and - to add modifiers \n"
+  + "`" + "/roll stats" +   "`" + "   generate your attributes by typing /roll stats \n"
+  + "`" + "/order set [name1] [name2]" +  "`" + "   save your turn order so you don’t forget \n"
+  + "`" + "/order list" + "`" + "   view the current turn order \n"
+  + "`" + "/order add [name]" + "`" + "   add someone to the end of the turn order \n"
+  + "`" + "/view" + "`" + "   view the current turn order"
 }
 
 //Stores turn order.
