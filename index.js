@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 var Discord = require('discord.io');
 var logger = require('winston');
 const sqlite3 = require("sqlite3");
